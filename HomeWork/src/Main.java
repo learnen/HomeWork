@@ -12,7 +12,7 @@ public class Main {
     private static final int REGISTER_CODE =1;
     private static final int LOGIN_CODE =2;
 
-    public static void main(String[] args) throws IOException, InstantiationException, IllegalAccessException {
+    public static void main(String[] args) throws IOException, InstantiationException, IllegalAccessException, InterruptedException {
         Scanner input = new Scanner(System.in);
         while (true){
             System.out.println("请输入你的选择1、注册 2、登录");

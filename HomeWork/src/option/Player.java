@@ -9,6 +9,11 @@ public class Player {
 
     private String nickName;
     private int score;
+    /**
+     * nickname : xxx
+     */
+
+    private String nickname;
 
     public String getNickName() {
         return nickName;
@@ -24,5 +29,13 @@ public class Player {
 
     public void setScore(int score) {
         this.score = score;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 }

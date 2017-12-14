@@ -1,5 +1,14 @@
 package Game;
 
+import net.sf.json.JSONArray;
+import option.Option;
+import option.Player;
+import person.Person;
+import tools.Match;
+
+import java.io.IOException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.*;
 
 public class Game {
@@ -37,10 +46,12 @@ public class Game {
 
     private static boolean Game(Scanner input, String result1) {
         System.out.println("请输入你所看到的字符：");
-     
+        long l = System.currentTimeMillis();
+        input.nextLine();
         String getIn = input.nextLine();
         if (getIn.equals(result1)){
-            System.out.println("挑战成功!");
+             l = System.currentTimeMillis() - l ;
+            System.out.println("挑战成功!   挑战成绩是"+l+"毫秒");
             return true;
         }else {
             System.out.println("输入字符不符合，请重新挑战");
@@ -138,6 +149,17 @@ public class Game {
             result = result + o.toString();
         }
         return result;
+
+    }
+
+    public static void upLoad(long score) throws IllegalAccessException, IOException, InstantiationException {
+        Person person = Match.returnPerson();
+        String nickName = person.getNickName();
+        String url = "http://192.168.20.221:8080/day16/insert?username="+nickName+"&score="+ score;
+
+        URL url1 = new URL(url);
+
+        URLConnection con = url1.openConnection();
 
     }
 

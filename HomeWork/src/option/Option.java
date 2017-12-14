@@ -1,5 +1,6 @@
 package option;
 
+import Game.Game;
 import net.sf.json.JSON;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
@@ -40,7 +41,7 @@ public class Option<T>{
 
     }
 
-    private static String getString(String city) throws IOException {
+    public static String getString(String city) throws IOException {
         String a = "http://api.k780.com/?app=weather.future&weaid="+
                 city + "&appkey=29836&sign=4fe58a60443a900a251f8b05763d4622&format=json";
         URL url = new URL(a);
@@ -91,6 +92,10 @@ public class Option<T>{
 
     }
 
+    public static void playGame() throws InterruptedException {
+        Game.play();
+    }
+
     public static void consultPlayer() throws IllegalAccessException, IOException, InstantiationException {
         String a = "http://192.168.20.221:8080/day16/ten";
 
@@ -101,18 +106,12 @@ public class Option<T>{
         for (int i = 0; i < arr.size(); i++) {
             JSONObject jsonObj =(JSONObject) arr.get(i);
             newsList1.add((Player) JSONObject.toBean(jsonObj ,Player.class));
-            System.out.println(newsList1.get(i).getNickName() +"的成绩是"+ newsList1.get(i).getScore());
+            System.out.println(newsList1.get(i).getNickname() +"的成绩是"+ newsList1.get(i).getScore());
         }
 
 
 
     }
-
-
-    public static void playGame(){
-
-    }
-
 
     public static <T> JSONArray create(String c, Class clazz) throws IOException, IllegalAccessException, InstantiationException {
 
