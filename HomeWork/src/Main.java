@@ -2,7 +2,7 @@ import begin.Login;
 import begin.Register;
 import option.Option;
 import org.dom4j.DocumentException;
-import person.Person;
+import bean.Person;
 import tools.Match;
 
 

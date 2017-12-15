@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<users>
+<users> 
   <user> 
     <username>13475642156</username>  
     <password>1325sdad</password>  
@@ -11,9 +11,14 @@
     <password>asdwq12354</password>  
     <nickname>asdsad</nickname> 
   </user>  
+  <user> 
+    <username>13456874852</username>  
+    <password>asda23sd2</password>  
+    <nickname>nihaa</nickname> 
+  </user>  
   <user>
-    <username>13456874852</username>
-    <password>asda23sd2</password>
-    <nickname>nihaa</nickname>
+    <username>13333333333</username>
+    <password>123456qwe</password>
+    <nickname>xuchao</nickname>
   </user>
 </users>

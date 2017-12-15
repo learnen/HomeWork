@@ -1,4 +1,4 @@
-package option;
+package bean;
 
 import java.util.List;
 

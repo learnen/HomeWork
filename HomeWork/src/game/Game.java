@@ -1,8 +1,7 @@
 package game;
 
-import net.sf.json.JSONObject;
-import option.Option;
-import person.Person;
+import bean.Person;
+import option.Constants;
 import tools.Match;
 
 import java.io.IOException;
@@ -24,7 +23,7 @@ public class Game {
 
         switch (choice){
             case 1://one 表示奇异字符  two表示小写字母  three表示大写字母
-                    // 0表示没有 ， 1表示有
+                // 0表示没有 ， 1表示有
                 result = getString(1, 1, 1, 30);
                 System.out.println(result);
                 game = Game(input, result);
@@ -32,10 +31,10 @@ public class Game {
             case 2:
                 result = getString(0, 1, 1, 20);
                 System.out.println(result);
-               game = Game(input, result);
+                game = Game(input, result);
                 break;
             case 3:
-               result = getString(0, 0, 1, 10);
+                result = getString(0, 0, 1, 10);
                 System.out.println(result);
                 game = Game(input, result);
                 break;
@@ -50,8 +49,8 @@ public class Game {
         input.nextLine();
         String getIn = input.nextLine();
         if (getIn.equals(result1)){
-             l = System.currentTimeMillis() - l ;
-             upLoad(l);
+            l = System.currentTimeMillis() - l ;
+            upLoad(l);
             System.out.println("挑战成功!   挑战成绩是"+l+"毫秒");
             return true;
         }else {
@@ -77,13 +76,13 @@ public class Game {
 
         Random random = new Random();
 
-        int a= 0;;
+        int a= 0;
         int b = 0 ;
         int c =  0;
 
         while (b+c+a < difficulty-7){
 
-           a= random.nextInt(difficulty)+1;
+            a= random.nextInt(difficulty)+1;
             if (one == 0){
                 a = 0;
             }
@@ -97,6 +96,7 @@ public class Game {
             if (b > 20){
                 b = random.nextInt(difficulty-a)+1;
             }
+
             c=  random.nextInt(difficulty-a-b)+1;
             if (three == 0){
                 c = 0;
@@ -151,7 +151,7 @@ public class Game {
     public static void upLoad(long score) throws IllegalAccessException, IOException, InstantiationException {
         Person person = Match.returnPerson();
         String nickName = person.getNickName();
-        String a = "http://192.168.20.221:8080/day16/insert?username="+nickName+"&score="+ score;
+        String a = "http://"+ Constants.ADRESS+"/day16/insert?username="+nickName+"&score="+ score;
 
         URL url = new URL(a);
 

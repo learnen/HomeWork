@@ -1,23 +1,21 @@
 package option;
 
-import com.thoughtworks.xstream.XStream;
-import com.thoughtworks.xstream.io.xml.DomDriver;
+import bean.Adress;
+import bean.TenPlayer;
+import bean.Weather;
 import game.Game;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
-import org.dom4j.Document;
 import org.dom4j.DocumentException;
-import org.dom4j.DocumentHelper;
-import org.dom4j.Element;
+
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static option.NetTool.*;
 
 public class Option<T>{
 
@@ -29,7 +27,7 @@ public class Option<T>{
 
         Map classMap = new HashMap();
 
-        classMap.put("result",Weather.ResultBean.class);
+        classMap.put("result", Weather.ResultBean.class);
 
 
         Weather weather = (Weather)JSONObject.toBean(jsonObject,Weather.class,classMap);
@@ -65,7 +63,7 @@ public class Option<T>{
     }
 
     public static void consultPlayer() throws IllegalAccessException, IOException, InstantiationException {
-        String a = "http://192.168.20.221:8080/day16/ten";
+        String a = "http://"+ Constants.ADRESS+"/day16/ten";
 
         JSONArray arr = getJsonObjectArray(a, TenPlayer.class);
 
@@ -82,70 +80,12 @@ public class Option<T>{
     }
 
     public static void getFirstOne() throws IOException, DocumentException {
-        String url = "http://192.168.20.221:8080/day16/first";
+        String url = "http://"+ Constants.ADRESS+"/day16/first";
 
-//        xmlGetString(url);
-        xStreamXml(url);
-
-    }
-
-
-
-    private static String getString(String a) throws IOException {
-        URL url = new URL(a);
-
-        URLConnection con = url.openConnection();
-
-        InputStream is = con.getInputStream();
-
-        byte[] buff = new byte[1024];
-
-        int len;
-
-        StringBuffer sb = new StringBuffer();
-
-        while ((len = is.read(buff)) != -1){
-            sb.append(new String(buff,0,len));
-        }
-
-        return new String(sb);
-    }
-
-    public static <T> JSONArray getJsonObjectArray(String c, Class clazz) throws IOException, IllegalAccessException, InstantiationException {
-
-        String result = getString(c);
-
-        JSONArray array_news =new JSONArray();
-        array_news = JSONArray.fromObject(result);
-
-        return  array_news;
+        xmlGetString(url);
+//        xStreamXml(url);
 
     }
-
-    private static JSONObject getJsonListObject(String a) throws IOException {
-        String result = getString(a);
-        return JSONObject.fromObject(result);
-    }
-
-    private static void xmlGetString(String a) throws IOException, DocumentException {
-        String result = getString(a);
-        Document document = DocumentHelper.parseText(result);
-
-        Element root = document.getRootElement();
-
-        Element nickname = root.element("nickname");
-        System.out.println(nickname.getText());
-
-    }
-
-    private static void xStreamXml(String a) throws IOException {
-        String result = getString(a);
-        XStream xStream = new XStream(new DomDriver());
-        xStream.aliasType("User", FirstPlayer.class);
-        FirstPlayer firstPlayer = (FirstPlayer)xStream.fromXML(result);
-        System.out.println(firstPlayer.getNickname());
-    }
-
 
 
 }
