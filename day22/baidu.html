@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>百度</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        a{
+            text-decoration-line: none;
+            color: black;
+        }
+        .head{
+            height:40px;
+        }
+        .head1{
+            list-style-type: none;
+        }
+        .head1 li{
+            margin-top: 10px;
+            margin-right: 10px;
+            float: left;
+        }
+        .head2{
+            list-style-type: none;
+        }
+        .head2 li{
+            margin-top: 10px;
+            float: right;
+            margin-left: 10px;
+        }
+        .head2 .more{
+            display: block;
+            color: white;
+            width: 100px;
+            height: 30px;
+            background-color: #4268b8;
+            margin-top: 0px;
+            padding-top: 10px;
+        }
+        .more a{
+
+            margin-left: 20px;
+            color: white;
+        }
+        .icon{
+            margin: 0 auto;
+            width: 270px;
+            height: 129px;
+            background: url("img/百度.png") no-repeat;
+            background-size: 100% 100%;
+            margin-top: 50px;
+        }
+        .input{
+            width: 750px;
+            margin: 0 auto;
+        }
+        .input input{
+            display: block;
+            float: left;
+            width: 640px;
+            height:40px;
+        }
+        .button{
+            display: block;
+            width: 100px;
+            height: 44px;
+            float: left;
+            font-size: 25px;
+            color: white;
+            line-height: 150%;
+            background-color: #3388ff;
+            cursor: pointer;
+        }
+        .button a{
+            color: white;
+        }
+        .bottom{
+            background-color: red;
+            width: 200px;
+            height: 200px;
+            bottom:0;
+            right: 0;
+            position: fixed;
+        }
+        .bottom_top{
+            width: 200px;
+            height: 20px;
+        }
+        .bottom_top span{
+            float: left;
+        }
+        .bottom_top span:nth-of-type(2){
+            float: right;
+        }
+        .advertise{
+            width: 200px;
+            height: 180px;
+            background: url("img/1.jpg") no-repeat;
+            background-size: 100% 100%;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="head">
+        <ul class="head1">
+            <li>大连:</li>
+            <li><img src="img/a0.png" alt=""></li>
+            <li>23℃</li>
+            <li>优秀</li>
+            <li>43</li>
+            <li><a href="">消息</a></li>
+        </ul>
+        <ul class="head2">
+            <li class="more"><a href="">更多产品</a></li>
+            <li><a href="">设置</a></li>
+            <li><a href="">登录</a></li>
+            <li><a href="">学术</a></li>
+            <li><a href="">贴吧</a></li>
+            <li><a href="">视频</a></li>
+            <li><a href="">地图</a></li>
+            <li><a href="">hao12</a></li>
+            <li><a href="">新闻</a></li>
+        </ul>
+    </div>
+
+    <hr>
+    <div class="icon"></div>
+    <div class="input">
+        <input type="text">
+        <span class="button"><a href="">百度一下</a></span>
+    </div>
+
+    <div class="bottom">
+        <div class="bottom_top">
+            <span>我是小广告</span>
+            <span>×</span>
+        </div>
+        <div class="advertise"></div>
+    </div>
+
+</body>
+</html>
