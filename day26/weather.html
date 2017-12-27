@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取天气</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <style>
+        input{
+            height: 50px;
+            width: 300px;
+            color: red;
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="city">
+    <input type="button" id="submit" value="查询天气">
+    <table border="1">
+
+    </table>
+</body>
+<script type="text/javascript">
+    $("#submit").click(function () {
+        var city = $("#city").val();
+        var url = "http://api.k780.com/?app=weather.future&weaid="+
+            city+"&appkey=29836&sign=4fe58a60443a900a251f8b05763d4622&format=json";
+        if (city){
+            $.ajax({type:'get',
+                    url : url,
+                    dataType : 'jsonp',
+                    jsonp:"jsoncallback",
+                    success  : function(data) {
+                    $('tr').remove();
+                        var result  = data.result;
+                        $('table').append(
+                            $("<tr><td>"+"日期"+"</td>+ "
+                                + "<td>"+"天气"+"</td>"
+                                + "<td>"+"风向"+"</td></tr>")
+                        )
+                        for (var i = 0 ; i < result.length ; i++){
+                            $('table').append(
+                                $("<tr><td>"+result[i].week+"</td>+ "
+                                    + "<td>"+result[i].weather+"</td>"
+                                    + "<td>"+result[i].wind+"</td></tr>")
+                            )
+                        }
+                    }
+                }
+            );
+        }
+    })
+
+</script>
+</html>
