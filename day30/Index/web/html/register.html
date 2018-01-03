@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head title="">
+    <meta charset="UTF-8">
+    <title>注册界面</title>
+    <style type="text/css">
+        body{
+            /*font-family: 楷体;*/
+            margin: 0px;
+            padding: 0px;
+            /*font-weight: bold;*/
+            background-color: #f4f8fb;
+        }
+        a{
+            text-decoration-line: none;
+        }
+        .head{
+            font-size: 30px;
+            text-align: left;
+            line-height: 70px;
+            background-color: white;
+            height: 70px;
+        }
+        .head_left{
+            float: left;
+            width: 200px;
+            height: 70px;
+            background: url("../img/log.png")   no-repeat center center ;
+        }
+        .contained{
+            margin: 100px auto;
+            width: 1200px;
+            height: 800px;
+            background-color: white;
+        }
+        .content{
+            width: 550px;
+            margin: 50px auto;
+            height: 600px;
+            position: relative;
+        }
+        .content-head{
+            font-size: 18px;
+            height: 140px;
+            margin-bottom: 30px;
+        }
+        .content-head img{
+           display: block;
+            margin-left: 50%;
+            width: 40px;
+            height: 40px;
+            margin-top: 100px;
+            float: left;
+        }
+        .content-head span{
+            line-height: 40px;
+            margin-top: 100px;
+            float: left;
+        }
+        label[for="password"],[for="adress"]{
+            font-size: 18px;
+            text-align: center;
+            line-height: 100px;
+            height: 50px;
+            margin-top: 20px;
+            display: block;
+            float: left;
+            width: 25%;
+        }
+        input[type="submit"],[type="text"],[type="password"]{
+            margin-top: 40px;
+            display: block;
+            float: left;
+            padding-left: 2%;
+            width: 72%;
+            height: 50px;
+            font-size: 20px;
+        }
+        input[type="checkbox"]{
+            display: block;
+            float: left;
+            margin-left: 25%;
+            margin-top: 40px;
+            margin-bottom: 10px;
+        }
+        label[for="agree"]{
+            display: block;
+            float: left;
+            margin-top: 35px;
+            margin-bottom: 10px;
+        }
+        .eye{
+            display: block;
+            width: 30px;
+            height: 30px;
+            background: url("../img/eye.png");
+            background-size: 100% 100%;
+            position: absolute;
+            top: 320px;
+            left: 500px;
+        }
+        .sign{
+            color: red;
+            display: block;
+            width: 200px;
+            top: 230px;
+            left: 580px;
+            position: absolute;
+            display: none;
+        }
+        .sign img{
+            margin-top: 4px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <div class="head_left"></div>
+        注册
+    </div>
+    <div class="contained">
+        <form action="/Day29/register" method="post" class="content">
+            <div class="content-head">
+                <img src="../img/email.png" alt="">
+                <span>邮箱号注册</span>
+                <hr align="right" width="74%">
+            </div>
+
+            <label for="adress">邮箱地址</label>
+            <input type="text" id="adress" name="username" placeholder="请输入邮箱地址">
+            <span class="sign">
+                <img src="../img/sign.png" alt="" style="width: 15px;height: 15px;">用户名为邮箱
+            </span>
+            <label for="password">登录密码</label>
+            <input type="password" id="password" name="password" placeholder="请设置登录密码">
+            <span class="sign" style="top: 330px;">
+                <img src="../img/sign.png" alt="" style="width: 15px;height: 15px;">用户名为邮箱
+            </span>
+
+            <span class="eye"></span>
+            <input type="checkbox" id="agree" name="agree" value="true">
+            <label for="agree">同意并遵守 <a href="">《服务条款》</a></label>
+
+            <input id="submit" type="submit" value="下一步" style="margin-left: 25%;background-color: #3c81e6;color: white">
+        </form>
+    </div>
+
+</div>
+</body>
+<script type="text/javascript">
+    var adress = document.getElementById("adress");
+    var signs = document.getElementsByClassName("sign");
+    adress.onfocus = function () {
+        signs[0].style.display = "block";
+    }
+    adress.onblur = function () {
+        signs[0].style.display = "none";
+    }
+    var password = document.getElementById("password");
+    password.onfocus = function () {
+        signs[1].style.display = "block";
+    }
+    password.onblur = function () {
+        signs[1].style.display = "none";
+    }
+
+    var submit = document.getElementById("submit");
+    submit.onmousedown = function (e) {
+        submit.style.border = "solid 5px white";
+    }
+
+
+
+
+
+</script>
+</html>
