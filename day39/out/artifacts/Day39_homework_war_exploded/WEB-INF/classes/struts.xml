@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.action.extension" value="li,"/>
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <constant name="struts.devMode" value="true"/>
+
+    <package name="day39" extends="struts-default" namespace="/user">
+        <action name="login" class="user.UserAction" method="login">
+            <result name="index">../index.jsp</result>
+            <result name="login">login.jsp</result>
+        </action>
+        <action name="register" class="user.UserAction" method="register">
+            <result name="login">login.jsp</result>
+            <result name="register">register.jsp</result>
+        </action>
+     </package>
+
+</struts>
